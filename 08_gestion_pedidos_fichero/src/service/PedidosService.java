@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import model.Pedido;
@@ -74,4 +75,22 @@ public class PedidosService {
 		return getPedidos()
 			.filter( p -> p.getFechaPedido().isBefore(LocalDate.now().minusMonths(meses)) )
 			.toList();	}
-}
+	
+	public List<Pedido> todos() {
+		return getPedidos().toList();
+	}
+	
+	public void borrarPedido(Pedido pedido) {
+		List<String> pedidosSinPedido = getPedidos()								// Stream<Pedido>
+				.filter( p -> !(p.getProducto().equals(pedido.getProducto())
+						  	 && p.getFechaPedido().equals(pedido.getFechaPedido())
+						  	 && p.getPrecio() == (pedido.getPrecio()) ) )			// Stream<Pedido>
+				.map( p -> p.getProducto() + ","
+						 + p.getFechaPedido() + ","
+						 + p.getPrecio() )											// Stream<String>
+				.collect(Collectors.toList());										// List<String>
+			 // .toList(); 		Sólo a partir de java 17
+		try { Files.write( path, pedidosSinPedido ); }
+		catch (IOException ex) { ex.printStackTrace(); }			
+	}
+}	
