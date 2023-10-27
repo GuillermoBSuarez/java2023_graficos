@@ -22,8 +22,6 @@ public class ListaPedidosModel extends DefaultListModel<Pedido> {
 
 	@Override
 	public Pedido getElementAt(int index) {
-		// TODO Auto-generated method stub
 		return pedidos.get(index);				// En la posición (index) de la lista de la pantalla
 	}											// tendrá que poner lo que haya en esa posición de pedidos.
-
 }
