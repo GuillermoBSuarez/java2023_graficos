@@ -17,13 +17,20 @@ import view.adaptars.TablaEmpleadosModel;
 import javax.swing.JComboBox;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+public class e2 extends JEmpleados {
+//	public Object print() {}
+	public String print(int m) {}
+//	public void print() {}
 
+}
 public class JEmpleados extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable tblEmpleados;
 
+	public Object print(int s) {}
+	
 	/**
 	 * Launch the application.
 	 */
