@@ -125,17 +125,6 @@ public class JMenu extends JFrame {
 		});
 		menuPedidos.add(itemPedidosTodos);
 		
-		btnNuevo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		btnReciente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
 		lstPedidos.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				btnBorrar.setEnabled(true);
